@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,4 @@ Route::get('/about', function () {
         'title' => 'About',
     ]);
 });
+Route::get('/posts', [PostController::class, 'index']);
