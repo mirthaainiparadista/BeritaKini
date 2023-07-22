@@ -6,6 +6,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\DashboardCategoryController;
 use App\Models\Category;
 
 /*
@@ -30,15 +32,20 @@ use App\Models\Category;
 //         'title' => 'Home',
 //     ]);
 // });
-// Route::get('/category', function () {
-//     return view('index',[
-//         'title' => 'Category',
-//     ]);
-// });
+
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+Route::get('/dashboard/posts', [DashboardPostController::class, 'index']);
+Route::get('/dashboard/createpost', [DashboardPostController::class, 'create']);
+Route::post('/dashboard/createpost', [DashboardPostController::class, 'store']);
+Route::get('/dashboard/posts/{post}', [DashboardPostController::class, 'edit']);
+Route::post('/dashboard/posts/{post}', [DashboardPostController::class, 'update']);
+Route::delete('/dashboard/delete/posts/{post}', [DashboardPostController::class, 'destroy']);
+
+Route::get('/dashboard/categories', [DashboardCategoryController::class, 'index']);
 
 
 Route::get('/register', [RegisterController::class, 'index']);
@@ -49,6 +56,6 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/', [PostController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/{post:slug}', [PostController::class, 'show']);
+Route::get('/posts/{post}', [PostController::class, 'show']);
 Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/categories/{category:category_slug}', [CategoryController::class, 'show']);
+Route::get('/categories/{category}', [CategoryController::class, 'show']);

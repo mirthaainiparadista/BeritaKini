@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="card mb-3">
-                <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="{{ $post->title }}">
+                <img src="{{ asset($post->image) }}" class="card-img-top" alt="{{ $post->title }}">
                 <div class="card-body">
                     <h6 class="fw-normal text-muted" style="text-align: center"><small> Published at {{ date('d M Y', strtotime($post->published_at)) }} </small></h6>
                     <br>
