@@ -1,29 +1,28 @@
 @extends('index')
 @section('content')
-
-
-<h1 class="text-center mb-3">List of Posts</h1>
-
-@if ($posts->count())
-        <div class="card mb-3" align="middle">
-            @if ($posts[0]->image)
-                <img src="{{ asset('storage/' . $posts[0]->image) }}" class="card-img-top" alt="{{ $posts[0]->category->category_name }}" width="100%" height="500px">
-            @else
-                <img src="{{ asset('path/to/default/image.jpg') }}" class="card-img-top" alt="{{ $posts[0]->category->category_name }}">
-            @endif
-            <div class="card-body">
-                {{-- <img src="{{ asset('storage/'. $posts[0]->gambar) }}" style="width: 20%" alt="nastar premium" align="middle"/> --}}
-                <h5 class="card-title">{{ $posts[0]->title }}</h5>
-                <h6> <small class="text-muted">by {{ $posts[0]->user->name }} in {{ $posts[0]->category->category_name }}</small> </h6>
-                <p class="card-text">{{ $posts[0]->excerpt }}</p>
-                <a href="/posts/{{ $posts[0]->slug }}" class="btn btn-primary"> Lebih lanjut</a>
+<h1 class="text-center mb-3">Category</h1>
+@if ($categories->count())
+<div class="categories ms-1 mb-1">
+    <div class="row">
+        @foreach ($categories as $category)
+        <div class="col-md-3">
+          <a href="/categories/{{ $category->category_slug }}">
+            <div class="card" style="width: 16rem; height=15rem;">
+              <img src="{{  asset('storage/'. $category->category_image)  }}" class="card-img-top" alt="{{ $category->namaKategori }}" style="height:10rem;">
+              <div class="card-body">
+                <h5 class="card-title text-center">{{ $category->category_name }}</h5>
+              </div>
             </div>
+          </a>
         </div>
+        @endforeach
+  </div>
+</div>
   @else
       <p class="text-center fs-4">TIDAK ADA POSTINGAN</p>
   @endif
 
-<div class="container">
+{{-- <div class="container">
     <div class="row">
         @foreach ($posts->skip(1) as $index => $post)
             <div class="col-md-3">
@@ -51,6 +50,5 @@
             </div>
         @endforeach
     </div>
-</div>
-
+</div> --}}
 @endsection

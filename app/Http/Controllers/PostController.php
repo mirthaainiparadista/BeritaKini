@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -50,7 +51,12 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        // $posts = Post::with('category', 'user')->get();
+
+        return view('post.singlepost',[
+            'title'=>'Single Post',
+            'post'=>$post,
+        ]);
     }
 
     /**

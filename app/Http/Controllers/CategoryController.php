@@ -14,7 +14,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('category.index',[
+            'title'=>'Category',
+            'categories'=>$categories,
+        ]);
     }
 
     /**
@@ -46,7 +50,10 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $posts = $category->post()->get();
+        return view('category.singlecategory', compact('posts', 'category'),[
+            'title'=>'Single Category',
+        ]);
     }
 
     /**

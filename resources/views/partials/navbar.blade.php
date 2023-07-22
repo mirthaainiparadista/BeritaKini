@@ -7,10 +7,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ $title == 'Home' ? 'active' : '' }}" href="/home">Home</a>
+                    <a class="nav-link {{ $title == 'Post' ? 'active' : '' }}" href="/">Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $title == 'Category' ? 'active' : '' }}" href="/category">Category</a>
+                    <a class="nav-link {{ $title == 'Category' ? 'active' : '' }}" href="/categories">Category</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ $title == 'About' ? 'active' : '' }}" href="/about">About</a>

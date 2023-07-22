@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             'role'=>'admin'
         ]);
         Category::create([
+            'category_image' => 'download.jpg',
             'category_name' => 'Website',
             'category_slug' => 'website',
         ]);
