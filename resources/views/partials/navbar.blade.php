@@ -12,9 +12,16 @@
                 <li class="nav-item">
                     <a class="nav-link {{ $title == 'Category' ? 'active' : '' }}" href="/categories">Category</a>
                 </li>
+                @auth
+                
                 <li class="nav-item">
-                    <a class="nav-link {{ $title == 'About' ? 'active' : '' }}" href="/about">About</a>
+                    <a class="nav-link {{ $title == 'Dashboard' ? 'active' : '' }}" href="/dashboard">Dashboard</a>
                 </li>
+                 @else   
+                 <li class="nav-item">
+                     <a class="nav-link {{ $title == 'Login' ? 'active' : '' }}" href="/login">Login</a>
+                 </li>
+                @endauth
             </ul>
         </div>
 
