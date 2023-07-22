@@ -51,7 +51,7 @@
                                 <h5 class="card-title text-wrap">{{ $post->title }}</h5>
                                 <h6><small class="text-muted">by {{ $post->user->name }}</small></h6>
                                 <p class="card-text">{{ \Illuminate\Support\Str::limit($post->excerpt, 100, '...') }}</p>
-                                <a href="/posts/{{ $post->slug }}" class="btn btn-primary" style="position: absolute; bottom: 10px; left: 10px;"> Lebih lanjut</a>
+                                <a href="/posts/{{ $post->id }}" class="btn btn-primary" style="position: absolute; bottom: 10px; left: 10px;"> Lebih lanjut</a>
                             </div>
                         </div>
                     </div>
