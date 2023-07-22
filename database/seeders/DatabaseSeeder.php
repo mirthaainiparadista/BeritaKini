@@ -40,8 +40,8 @@ class DatabaseSeeder extends Seeder
             'user_id'=>1,
             'title' => 'Cara Menjadi Web Developer',
             'slug' => 'caramenjadiwebdeveloper',
-            'excerpt' => 'yuuhuhuh',
-            'body'=> 'body',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, consectetur! Reprehenderit voluptate cupiditate ad, hic, fugiat, assumenda ut unde saepe ducimus nostrum porro ex modi ipsa sequi.',
+            'body'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, consectetur! Reprehenderit voluptate cupiditate ad, hic, fugiat, assumenda ut unde saepe ducimus nostrum porro ex modi ipsa sequi. In nesciunt ad soluta repellat, velit vero blanditiis officia neque assumenda deserunt labore officiis ut iusto quidem atque, necessitatibus consectetur quod eum repudiandae ipsum quam delectus, esse aperiam. Nemo neque vel quibusdam quia consequatur eum excepturi! Dolor totam reiciendis officia quasi voluptatibus voluptatum velit commodi animi quibusdam suscipit neque similique beatae ducimus corporis quisquam saepe aperiam doloribus, illum fugiat doloremque eum! Officia, officiis vitae. Ratione, nobis nemo maiores deleniti quia dignissimos fugit id.',
             'published_at'=>'2023-07-21',
         ]);
         Post::create([
@@ -50,8 +50,8 @@ class DatabaseSeeder extends Seeder
             'user_id'=>1,
             'title' => 'Cara Menjadi Engineer',
             'slug' => 'caramenjadiengineer',
-            'excerpt' => 'yuuhuhuh',
-            'body'=> 'body',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, consectetur! Reprehenderit voluptate cupiditate ad, hic, fugiat, assumenda ut unde saepe ducimus nostrum porro ex modi ipsa sequi.',
+            'body'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, consectetur! Reprehenderit voluptate cupiditate ad, hic, fugiat, assumenda ut unde saepe ducimus nostrum porro ex modi ipsa sequi. In nesciunt ad soluta repellat, velit vero blanditiis officia neque assumenda deserunt labore officiis ut iusto quidem atque, necessitatibus consectetur quod eum repudiandae ipsum quam delectus, esse aperiam. Nemo neque vel quibusdam quia consequatur eum excepturi! Dolor totam reiciendis officia quasi voluptatibus voluptatum velit commodi animi quibusdam suscipit neque similique beatae ducimus corporis quisquam saepe aperiam doloribus, illum fugiat doloremque eum! Officia, officiis vitae. Ratione, nobis nemo maiores deleniti quia dignissimos fugit id.',
             'published_at'=>'2023-07-21',
         ]);
         Post::create([
@@ -60,8 +60,8 @@ class DatabaseSeeder extends Seeder
             'user_id'=>1,
             'title' => 'Cara Menjadi IT Manager',
             'slug' => 'caramenjadiITmanager',
-            'excerpt' => 'yuuhuhuh',
-            'body'=> 'body',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, consectetur! Reprehenderit voluptate cupiditate ad, hic, fugiat, assumenda ut unde saepe ducimus nostrum porro ex modi ipsa sequi.',
+            'body'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, consectetur! Reprehenderit voluptate cupiditate ad, hic, fugiat, assumenda ut unde saepe ducimus nostrum porro ex modi ipsa sequi. In nesciunt ad soluta repellat, velit vero blanditiis officia neque assumenda deserunt labore officiis ut iusto quidem atque, necessitatibus consectetur quod eum repudiandae ipsum quam delectus, esse aperiam. Nemo neque vel quibusdam quia consequatur eum excepturi! Dolor totam reiciendis officia quasi voluptatibus voluptatum velit commodi animi quibusdam suscipit neque similique beatae ducimus corporis quisquam saepe aperiam doloribus, illum fugiat doloremque eum! Officia, officiis vitae. Ratione, nobis nemo maiores deleniti quia dignissimos fugit id.',
             'published_at'=>'2023-07-21',
         ]);
         Post::create([
