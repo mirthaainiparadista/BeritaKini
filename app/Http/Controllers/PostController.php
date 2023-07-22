@@ -14,13 +14,24 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $posts = Post::with('category', 'user')->get();
+{
+    // Ambil semua data post bersama dengan data category dan user terkait
+    $posts = Post::with('category', 'user');
 
-        return view('post.index', compact('posts'),[
-            'title'=>'Post',
-        ]);
+    // Cek apakah terdapat parameter 'search' dalam request
+    if (request('search')) {
+        $searchQuery = '%' . request('search') . '%';
+        $posts->where('title', 'like', $searchQuery);
     }
+
+    // Ambil hasil query dengan metode get()
+    $posts = $posts->get();
+
+    return view('post.index', compact('posts'), [
+        'title' => 'Post',
+    ]);
+}
+
 
     /**
      * Show the form for creating a new resource.

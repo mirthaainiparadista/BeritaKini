@@ -3,7 +3,17 @@
 
 
 <h1 class="text-center mb-3">List of Posts</h1>
-
+{{-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> --}}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form action="/posts">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
+                <button class="btn btn-danger" type="submit" style="background-color: #BF2C45">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
 @if ($posts->count())
         <div class="card mb-3" align="middle">
             @if ($posts[0]->image)
@@ -36,11 +46,11 @@
                     <div class="row g-0">
                         <div class="col-md-12 text-center">
                             <!-- Menggunakan class "img-fluid" untuk membuat gambar memenuhi lebar card -->
-                            <img src="{{ asset('storage/'. $post->image) }}" class=" rounded-start" alt="{{ $post->title }}" height="175px" width="295">
+                            <img src="{{ asset('storage/'. $post->image) }}" class=" rounded-start" alt="{{ $post->title }}" height="175px" width="100%">
                         </div>
                         <div class="col-md-12">
-                            <div class="card-body" style="height: 225px;">
-                                <h5 class="card-title">{{ $post->title }}</h5>
+                            <div class="card-body" style="height: 275px;">
+                                <h5 class="card-title text-wrap">{{ $post->title }}</h5>
                                 <h6><small class="text-muted">by {{ $post->user->name }}</small></h6>
                                 <p class="card-text">{{ \Illuminate\Support\Str::limit($post->excerpt, 100, '...') }}</p>
                                 <a href="/posts/{{ $post->slug }}" class="btn btn-primary" style="position: absolute; bottom: 10px; left: 10px;"> Lebih lanjut</a>
