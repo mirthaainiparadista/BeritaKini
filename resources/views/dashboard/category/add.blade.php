@@ -8,11 +8,11 @@
     <form method="POST" action="/dashboard/createcategory" class="mb-5" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-            <label for="category_image" class="form-label">Gambar (max 5mb)</label>
-            <img class="img-preview img-fluid mb-3 col-sm-5">
-            <input class="form-control @error('category_image') is-invalid @enderror" type="file" id="category_image" name="category_image"
-            onchange="previewGambar()">
-        </div>
+          <label for="category_image" class="form-label">Gambar (max 5mb)</label>
+          <img class="img-preview img-fluid mb-3 col-sm-5">
+          <input class="form-control @error('category_image') is-invalid @enderror" type="file" id="category_image" name="category_image"
+          onchange="previewGambar()">
+      </div>
         <div class="mb-3">
           <label for="category_name" class="form-label">Title</label>
           <input type="text" class="form-control @error('category_name') is-invalid @enderror" id="category_name" name='category_name'

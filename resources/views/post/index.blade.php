@@ -17,9 +17,7 @@
 @if ($posts->count())
         <div class="card mb-3" align="middle">
             @if ($posts[0]->image)
-                <img src="{{ asset($posts[0]->image) }}" class="card-img-top" alt="{{ $posts[0]->category->category_name }}" width="100%" height="500px">
-            @else
-                <img src="{{ asset('path/to/default/image.jpg') }}" class="card-img-top" alt="{{ $posts[0]->category->category_name }}">
+                <img src="{{ asset('storage/' . $posts[0]->image) }}" class="card-img-top" alt="{{ $posts[0]->category->category_name }}" width="100%" height="500px">
             @endif
             <div class="card-body">
                 {{-- <img src="{{ asset('storage/'. $posts[0]->gambar) }}" style="width: 20%" alt="nastar premium" align="middle"/> --}}
@@ -46,7 +44,7 @@
                     <div class="row g-0">
                         <div class="col-md-12 text-center">
                             <!-- Menggunakan class "img-fluid" untuk membuat gambar memenuhi lebar card -->
-                            <img src="{{ asset($post->image) }}" class=" rounded-start" alt="{{ $post->title }}" height="175px" width="100%">
+                            <img src="{{ asset('storage/'. $post->image) }}" class=" rounded-start" alt="{{ $post->title }}" height="175px" width="100%">
                         </div>
                         <div class="col-md-12">
                             <div class="card-body" style="height: 275px;">

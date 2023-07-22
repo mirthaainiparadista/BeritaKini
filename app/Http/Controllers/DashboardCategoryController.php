@@ -49,10 +49,8 @@ class DashboardCategoryController extends Controller
         ]);
 
         if ($request -> file('category_image')) {
-            $validatedData['category_image'] = $request->file('category_image')->store('storage');
-        }else {
-            $validatedData['category_image'] = 'storage/download.jpg';
-        }
+            $validatedData['category_image'] = $request->file('category_image')->store('category_images', 'public');
+        };
 
         Category::create($validatedData);
 
@@ -101,14 +99,9 @@ class DashboardCategoryController extends Controller
         $validatedData = $request->validate($rules);
 
         if ($request -> file('category_image')) {
-            if ($request -> category_imageLama != 'storage/download.jpg'){
-                Storage::delete($request->category_imageLama);
-            }
-            $validatedData['category_image'] = $request->file('category_image')->store('storage');
-        }else {
-            $validatedData['category_image'] = 'storage/download.jpg';
-        }
-
+                Storage::delete($category->category_image);
+            $validatedData['category_image'] = $request->file('category_image')->store('category_images', 'public');
+        };
         Category::where('id', $category->id)->update($validatedData);
 
         return redirect('/dashboard/categories')->with('success','Category Berhasil Diperbarui');

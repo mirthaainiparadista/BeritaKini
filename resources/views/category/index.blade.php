@@ -8,7 +8,7 @@
         <div class="col-md-3">
           <a href="/categories/{{ $category->id }}">
             <div class="card" style="width: 16rem; height=15rem;">
-              <img src="{{  asset($category->category_image)  }}" class="card-img-top" alt="{{ $category->namaKategori }}" style="height:10rem;">
+              <img src="{{  asset('storage/'.$category->category_image)  }}" class="card-img-top" alt="{{ $category->namaKategori }}" style="height:10rem;">
               <div class="card-body">
                 <h5 class="card-title text-center">{{ $category->category_name }}</h5>
               </div>

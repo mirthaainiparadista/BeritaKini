@@ -59,7 +59,7 @@ class DashboardPostController extends Controller
         ]);
 
         if ($request -> file('image')) {
-            $validatedData['image'] = $request->file('image')->store('storage');
+            $validatedData['image'] = $request->file('image')->store('post-images', 'public');
         }else {
             $validatedData['image'] = 'storage/download.jpg';
         }
@@ -121,13 +121,9 @@ class DashboardPostController extends Controller
         $validatedData = $request->validate($rules);
 
         if ($request -> file('image')) {
-            if ($request -> imageLama != 'storage/download.jpg'){
-                Storage::delete($request->imageLama);
-            }
-            $validatedData['image'] = $request->file('image')->store('storage');
-        }else {
-            $validatedData['image'] = 'storage/download.jpg';
-        }
+                Storage::delete($post->image);
+            $validatedData['image'] = $request->file('image')->store('post-images', 'public');
+        };
 
         $validatedData['excerpt'] =strip_tags(Str::limit ($request->body, 100));
 
