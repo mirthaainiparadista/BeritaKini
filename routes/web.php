@@ -36,7 +36,7 @@ use App\Models\Category;
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardPostController::class, 'index']);
 
 Route::get('/dashboard/posts', [DashboardPostController::class, 'index']);
 Route::get('/dashboard/createpost', [DashboardPostController::class, 'create']);
@@ -46,7 +46,11 @@ Route::post('/dashboard/posts/{post}', [DashboardPostController::class, 'update'
 Route::delete('/dashboard/delete/posts/{post}', [DashboardPostController::class, 'destroy']);
 
 Route::get('/dashboard/categories', [DashboardCategoryController::class, 'index']);
-
+Route::get('/dashboard/createcategory', [DashboardCategoryController::class, 'create']);
+Route::post('/dashboard/createcategory', [DashboardCategoryController::class, 'store']);
+Route::get('/dashboard/categories/{category}', [DashboardCategoryController::class, 'edit']);
+Route::post('/dashboard/categories/{category}', [DashboardCategoryController::class, 'update']);
+Route::delete('/dashboard/delete/categories/{category}', [DashboardCategoryController::class, 'destroy']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);

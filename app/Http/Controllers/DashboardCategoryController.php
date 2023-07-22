@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardCategoryController extends Controller
 {
@@ -28,7 +30,9 @@ class DashboardCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.category.add',[
+            'title'=>'Dashboard|Create Category',
+        ]);
     }
 
     /**
@@ -39,7 +43,20 @@ class DashboardCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'category_image' => 'image|file|max:5000',
+            'category_name'=>'required',
+        ]);
+
+        if ($request -> file('category_image')) {
+            $validatedData['category_image'] = $request->file('category_image')->store('storage');
+        }else {
+            $validatedData['category_image'] = 'storage/download.jpg';
+        }
+
+        Category::create($validatedData);
+
+        return redirect('/dashboard/categories')->with('success','Category Berhasil Ditambahkan');
     }
 
     /**
@@ -61,7 +78,10 @@ class DashboardCategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('dashboard.category.edit',[
+            'title'=>'Dashboard|Edit',
+            'category'=>$category,
+        ]);
     }
 
     /**
@@ -73,7 +93,25 @@ class DashboardCategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $rules = ([
+            'category_image' => 'image|file|max:5000',
+            'category_name'=>'required',
+        ]);
+        
+        $validatedData = $request->validate($rules);
+
+        if ($request -> file('category_image')) {
+            if ($request -> category_imageLama != 'storage/download.jpg'){
+                Storage::delete($request->category_imageLama);
+            }
+            $validatedData['category_image'] = $request->file('category_image')->store('storage');
+        }else {
+            $validatedData['category_image'] = 'storage/download.jpg';
+        }
+
+        Category::where('id', $category->id)->update($validatedData);
+
+        return redirect('/dashboard/categories')->with('success','Category Berhasil Diperbarui');
     }
 
     /**
@@ -84,6 +122,11 @@ class DashboardCategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if ($category -> category_image != 'storage/download.jpg'){
+            Storage::delete($category->category_image);
+        }
+        Category::destroy($category->id);
+
+        return redirect('/dashboard/categories')->with('success','Category Berhasil Dihapus');
     }
 }
